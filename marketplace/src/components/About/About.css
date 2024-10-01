@@ -1,0 +1,35 @@
+/* src/components/About/About.css */
+.about-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+}
+
+.about-container {
+  text-align: center; /* Center-align the text and image */
+  max-width: 800px; /* Constrain width to avoid the image pushing content */
+  margin: 0 auto; /* Center the container itself */
+}
+
+.about-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 40px; /* Ensure space between the paragraph and the image */
+}
+
+.about-section img {
+  display: block; /* Ensure the image is block-level */
+  margin: 0 auto; /* Center the image */
+  max-width: 200px; /* Control the width */
+  height: auto; /* Keep natural aspect ratio */
+  margin-top: 20px; /* Add space between the text and image */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for styling */
+}
