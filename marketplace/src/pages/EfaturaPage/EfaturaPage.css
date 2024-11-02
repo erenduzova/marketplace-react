@@ -1,0 +1,166 @@
+/* Genel Ayarlar */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #333;
+  color: #ddd;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  background-color: #333;
+  border: 1px solid #555;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.form-control:focus {
+  border-color: #f1c40f;
+}
+
+
+btn-primary {
+  background-color: #f1c40f;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #d4ac0d;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+/* Küçük Butonlar */
+.btn-sm {
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Tablo */
+.table-container {
+  margin-top: 40px;
+}
+
+.table-dark {
+  background-color: #444;
+  border-color: #555;
+  width: 100%;
+}
+
+.table-dark th, .table-dark td {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+  text-align: center;
+}
+
+.table-dark tbody tr {
+  background-color: #444;
+}
+
+.table-dark tbody tr:hover {
+  background-color: #555;
+}
+
+/* İşlem Butonları */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  border-radius: 5px;
+  min-width: 80px;
+}
+
+
+.form-row .btn {
+  margin-top: 33px;
+}
+
+/* Logolar ve PDF gibi butonlar */
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}

@@ -1,0 +1,145 @@
+/* Genel Ayarlar */
+.product-section {
+    padding: 90px 0;
+}
+
+.product-section h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight:600;
+    margin-bottom: 20px;
+}
+
+.product-btn-add {
+    background-color: #eaff00;
+    color: #000;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-btn-add:hover {
+    background-color: #f39c12;
+}
+
+/* Ürün Tablosu */
+.product-table {
+    margin-top: 20px;
+}
+
+.product-table-striped tbody tr:nth-of-type(odd) {
+    background-color: #393939;
+}
+
+.product-table thead th {
+    background-color: #343a40;
+    color: white;
+    padding: 12px;
+}
+
+.product-table td, .product-table th {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.product-table-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Düzenle ve Sil Butonları */
+.product-btn-warning {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.product-btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.product-btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.product-btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Modal Stil Ayarları */
+.product-modal-header {
+    background-color: #f1c40f;
+    color: #000000;
+    border-bottom: 1px solid #f39c12;
+}
+
+.product-modal-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-modal-body .product-form-group {
+    margin-bottom: 15px;
+}
+
+.product-modal-body .product-form-control {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.product-modal-footer .product-btn-secondary {
+    background-color: #ffda06;
+    color:#000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.product-modal-footer .product-btn-secondary:hover {
+    background-color:#f39c12;
+    color: #fff; 
+}
+
+.product-modal-footer .product-btn-primary {
+    background-color: #ffda06;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.product-modal-footer .product-btn-primary:hover {
+    background-color: #f39c12;
+}
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+    .product-table-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .product-btn-add {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
