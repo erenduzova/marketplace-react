@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import "./OrderManagmentPage.css";
@@ -49,9 +49,9 @@ function OrderManagmentPage()
         </table>
       </div>
     </div>
-      <Footer /> {/* Footer'ı burada gösteriyoruz */}
-        </>
-    );
+
+        <Footer /> {/* Footer'ı burada gösteriyoruz */}
+        </> );
   }
   
  
