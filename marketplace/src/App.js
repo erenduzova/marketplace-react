@@ -26,11 +26,11 @@ function App() {
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/marketplace" element={<MarketplacePage />} />
         <Route path="/ordermanagment" element={<OrderManagementPage />} />
-        <Route path="efatura"element={<EfaturaPage />} />
-        <Route path="salesmanagement"element={<SalesManagementPage />} />
-        <Route path="profile"element={<ProfilePage />} />
-        <Route path="storeprofile"element={<StoreProfilePage />} />
-        <Route path="products-section"element={<ProductsSectionPage />} />
+        <Route path="/efatura"element={<EfaturaPage />} />
+        <Route path="/salesmanagement"element={<SalesManagementPage />} />
+        <Route path="/profile"element={<ProfilePage />} />
+        <Route path="/storeprofile"element={<StoreProfilePage />} />
+        <Route path="/products-section"element={<ProductsSectionPage />} />
       </Routes>
       
     </Router>

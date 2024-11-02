@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-import "./SalesManagementPage.css"
+import "./SalesManagementPage.css";
+
 const SalesManagementPage = () => {
     const salesData = [
         {
@@ -34,52 +35,52 @@ const SalesManagementPage = () => {
 
     return (
         <>
-        <Navbar /> {/* Navbar'ı burada gösteriyoruz */}
-        <div className="content-container">
-            <h3 className="text-center mb-4">Satış Yönetimi</h3>
-            <div className="table-responsive">
-                <table className="table table-dark table-hover">
-                    <thead>
-                        <tr>
-                            <th>Ürün Adı</th>
-                            <th>Kategori</th>
-                            <th>Satış Adedi</th>
-                            <th>Birim Fiyatı</th>
-                            <th>KDV Oranı</th>
-                            <th>Genel Toplam</th>
-                            <th>Kar/Zarar Durumu</th>
-                            <th>İade Oranı</th>
-                            <th>Pazar Yeri</th>
-                            <th>Satış Trendi</th>
-                            <th>Kampanya Önerisi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {salesData.map((item, index) => (
-                            <tr key={index}>
-                                <td>{item.productName}</td>
-                                <td>{item.category}</td>
-                                <td>{item.salesCount}</td>
-                                <td>{item.unitPrice} TL</td>
-                                <td>%{item.vatRate}</td>
-                                <td>{item.totalAmount.toLocaleString()} TL</td>
-                                <td className={item.profitLoss === "Kar" ? "text-success" : "text-danger"}>
-                                    {item.profitLoss}
-                                </td>
-                                <td>%{item.returnRate}</td>
-                                <td>{item.marketplace}</td>
-                                <td>{item.salesTrend}</td>
-                                <td>
-                                    <button className="btn btn-primary btn-sm">Kampanya Oluştur</button>
-                                </td>
+            <Navbar /> {/* Navbar'ı burada gösteriyoruz */}
+            <div className="sales-content-container">
+                <h3 className="sales-text-center mb-4">Satış Yönetimi</h3>
+                <div className="sales-table-responsive">
+                    <table className="sales-table sales-table-dark sales-table-hover">
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Kategori</th>
+                                <th>Satış Adedi</th>
+                                <th>Birim Fiyatı</th>
+                                <th>KDV Oranı</th>
+                                <th>Genel Toplam</th>
+                                <th>Kar/Zarar Durumu</th>
+                                <th>İade Oranı</th>
+                                <th>Pazar Yeri</th>
+                                <th>Satış Trendi</th>
+                                <th>Kampanya Önerisi</th>
                             </tr>
-                    ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {salesData.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.productName}</td>
+                                    <td>{item.category}</td>
+                                    <td>{item.salesCount}</td>
+                                    <td>{item.unitPrice} TL</td>
+                                    <td>%{item.vatRate}</td>
+                                    <td>{item.totalAmount.toLocaleString()} TL</td>
+                                    <td className={item.profitLoss === "Kar" ? "sales-text-success" : "sales-text-danger"}>
+                                        {item.profitLoss}
+                                    </td>
+                                    <td>%{item.returnRate}</td>
+                                    <td>{item.marketplace}</td>
+                                    <td>{item.salesTrend}</td>
+                                    <td>
+                                        <button className="sales-btn-primary btn-sm">Kampanya Oluştur</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <Footer /> {/* Footer'ı burada gösteriyoruz */}
-      </>
+            <Footer /> {/* Footer'ı burada gösteriyoruz */}
+        </>
     );
 };
 
