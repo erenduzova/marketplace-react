@@ -1,0 +1,109 @@
+/* Genel Yapı */
+
+.content-container {
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Başlık */
+h3.text-center {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 30px;
+
+}
+
+/* Tablo Stil */
+.table-responsive {
+    overflow-x: auto;
+
+}
+
+.table-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #495057;
+}
+
+/* Tablo Başlıkları */
+.table thead th {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #212529;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Tablo Verileri */
+.table td {
+    padding: 12px;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td .btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+/* Kampanya Butonu */
+.btn-primary {
+    background-color: #ffcc00;
+    border: none;
+    color: #000;;
+}
+
+.btn-primary:hover {
+    background-color: #ffcc00;
+}
+
+/* Mobil ve Küçük Ekranlara Uyum */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .table td[data-label="Kampanya Önerisi"] {
+        text-align: center;
+        padding-left: 0;
+    }
+}

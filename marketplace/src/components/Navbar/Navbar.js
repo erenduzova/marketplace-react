@@ -64,8 +64,8 @@ function Navbar() {
             <>
               <li>
                 <Link
-                  to="/store"
-                  className={currentPath === "/store" ? "active" : ""}
+                  to="/storeprofile"
+                  className={currentPath === "/storeprofile" ? "active" : ""}
                 >
                   Mağazam
                 </Link>
@@ -78,6 +78,15 @@ function Navbar() {
                   Ürünler
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/marketplace"
+                  className={currentPath === "/marketplace" ? "active" : ""}
+                >
+                  Pazar Yeri
+                </Link>
+              </li>
+              
             </>
           )}
 
