@@ -62,6 +62,14 @@ function Navbar() {
 
           {isLoggedIn && (role === "USER" || role === "STORE_OWNER") && (
             <>
+            <li>
+                <Link
+                  to="/profile"
+                  className={currentPath === "/profile" ? "active" : ""}
+                >
+                  Kullanıcı
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/storeprofile"
@@ -72,8 +80,8 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to="/products"
-                  className={currentPath === "/products" ? "active" : ""}
+                  to="/products-section"
+                  className={currentPath === "/products-section" ? "active" : ""}
                 >
                   Ürünler
                 </Link>
@@ -86,6 +94,32 @@ function Navbar() {
                   Pazar Yeri
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/ordermanagment"
+                  className={currentPath === "/ordermanagment" ? "active" : ""}
+                >
+                  Siparişler
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/salesmanagement"
+                  className={currentPath === "/salesmanagement" ? "active" : ""}
+                >
+                  Satış Yöntimi
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/efatura"
+                  className={currentPath === "/efatura" ? "active" : ""}
+                >
+                  E-Fatura
+                </Link>
+              </li>
+              
+              
               
             </>
           )}

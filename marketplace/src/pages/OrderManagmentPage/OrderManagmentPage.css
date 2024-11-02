@@ -2,13 +2,16 @@
 .productTable-content-container {
   padding: 20px;
   background-color: #2c2c2c; /* Darker background color for container */
+  margin-top: 90px; /* Navbar ile tablo arasında boşluk */
+  min-height: calc(80vh - 80px); /* 80px, navbar ve footer yüksekliği */
+     
 }
 
 /* Tablo Stilleri */
 .productTable-table {
   width: 100%;
   color: #fff;
-  background-color: #343a40; /* Dark background for table */
+  background-color: #555; /* Dark background for table */
   border-collapse: collapse;
   margin: 0 auto;
 }
@@ -49,6 +52,7 @@
 
 .productTable-btn-warning {
   background-color: #ffc107; /* Yellow for "İade Al" button */
+  color: #000;
 }
 
 /* Düğme Üzerine Gelince Hafif Renk Değişimi */
