@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import "../../styles/FormStyles.css";
 import "./RegistrationPage.css";
 
 function RegistrationPage() {
@@ -39,7 +40,7 @@ function RegistrationPage() {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <Navbar />
       <div className="registration-section">
         <div className="registration-container">
@@ -52,7 +53,7 @@ function RegistrationPage() {
                 </span>
                 <input
                   type="text"
-                  className="registeration-input"
+                  className="form-input"
                   placeholder="Adınız"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -65,7 +66,7 @@ function RegistrationPage() {
                 </span>
                 <input
                   type="text"
-                  className="registeration-input"
+                  className="form-input"
                   placeholder="Soyadınız"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -78,7 +79,7 @@ function RegistrationPage() {
                 </span>
                 <input
                   type="email"
-                  className="registeration-input"
+                  className="form-input"
                   placeholder="E-posta Adresiniz"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -91,7 +92,7 @@ function RegistrationPage() {
                 </span>
                 <input
                   type="password"
-                  className="registeration-input"
+                  className="form-input"
                   placeholder="Şifreniz"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -104,7 +105,7 @@ function RegistrationPage() {
               </button>
             </form>
             <p className="text-center mt-3">
-              Zaten bir hesabınız var mı ?
+              Zaten bir hesabınız var mı ?{" "}
               <a href="/login" className="login-link">
                 Giriş Yapın
               </a>

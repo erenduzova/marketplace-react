@@ -1,7 +1,7 @@
 // src/components/Navbar/Navbar.js
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { getUserRole, isAuthenticated } from "../../utils/auth";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { getUserRole, isAuthenticated, logout } from "../../utils/auth";
 import "./Navbar.css";
 import Logo from "../../assets/images/logoyazi.png";
 
@@ -10,10 +10,16 @@ function Navbar() {
   const isLoggedIn = isAuthenticated();
   const role = getUserRole();
   const location = useLocation();
+  const navigate = useNavigate();
   const currentPath = location.pathname;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -22,7 +28,11 @@ function Navbar() {
         <Link to="/" className="navbar-brand">
           <img src={Logo} alt="Logo" className="navbar-logo" />
         </Link>
-        <button className="navbar-toggler" onClick={toggleMenu}>
+        <button
+          className="navbar-toggler"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           <i className="fas fa-bars"></i>
         </button>
         <ul className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
@@ -31,6 +41,7 @@ function Navbar() {
               Ana Sayfa
             </Link>
           </li>
+
           {!isLoggedIn && (
             <>
               <li>
@@ -62,7 +73,7 @@ function Navbar() {
 
           {isLoggedIn && (role === "USER" || role === "STORE_OWNER") && (
             <>
-            <li>
+              <li>
                 <Link
                   to="/profile"
                   className={currentPath === "/profile" ? "active" : ""}
@@ -81,7 +92,9 @@ function Navbar() {
               <li>
                 <Link
                   to="/products-section"
-                  className={currentPath === "/products-section" ? "active" : ""}
+                  className={
+                    currentPath === "/products-section" ? "active" : ""
+                  }
                 >
                   Ürünler
                 </Link>
@@ -96,8 +109,8 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to="/ordermanagment"
-                  className={currentPath === "/ordermanagment" ? "active" : ""}
+                  to="/ordermanagement"
+                  className={currentPath === "/ordermanagement" ? "active" : ""}
                 >
                   Siparişler
                 </Link>
@@ -107,7 +120,7 @@ function Navbar() {
                   to="/salesmanagement"
                   className={currentPath === "/salesmanagement" ? "active" : ""}
                 >
-                  Satış Yöntimi
+                  Satış Yönetimi
                 </Link>
               </li>
               <li>
@@ -118,9 +131,6 @@ function Navbar() {
                   E-Fatura
                 </Link>
               </li>
-              
-              
-              
             </>
           )}
 
@@ -136,21 +146,23 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to="/categories"
-                  className={currentPath === "/categories" ? "active" : ""}
+                  to="/category-brand-management"
+                  className={
+                    currentPath === "/category-brand-management" ? "active" : ""
+                  }
                 >
-                  Kategoriler
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/brands"
-                  className={currentPath === "/brands" ? "active" : ""}
-                >
-                  Markalar
+                  Kategori ve Marka Yönetimi
                 </Link>
               </li>
             </>
+          )}
+
+          {isLoggedIn && (
+            <li>
+              <button onClick={handleLogout} className="logout-btn">
+                Çıkış Yap
+              </button>
+            </li>
           )}
         </ul>
       </div>

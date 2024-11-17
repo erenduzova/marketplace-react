@@ -1,7 +1,8 @@
 // src/pages/LoginPage/LoginPage.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
+import "../../styles/FormStyles.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -24,27 +25,26 @@ function LoginPage() {
       },
       body: JSON.stringify(payload),
     })
-      .then((response) => {
+      .then(async (response) => {
+        const data = await response.json();
         if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error("Email veya şifre hatalı");
-          } else {
-            throw new Error("An unexpected error occurred. Please try again.");
-          }
+          const error =
+            data.message || "An unexpected error occurred. Please try again.";
+          throw new Error(error);
         }
-        return response.json();
+        return data;
       })
       .then((data) => {
-        if (data.token) {
+        if (data.token && data.role) {
           // Store token and role in localStorage
           localStorage.setItem("token", data.token);
           localStorage.setItem("role", data.role);
 
           // Redirect based on the user role
           if (data.role === "ADMIN" || data.role === "SUPER_ADMIN") {
-            navigate("/admin");
+            navigate("/user-management");
           } else {
-            navigate("/user");
+            navigate("/");
           }
         } else {
           setErrorMessage("Login failed. Please check your credentials.");
@@ -56,7 +56,7 @@ function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <Navbar />
       <div className="login-page">
         <div className="login-container">
@@ -68,7 +68,7 @@ function LoginPage() {
               </span>
               <input
                 type="email"
-                className="login-input"
+                className="form-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="E-posta Adresiniz"
@@ -81,7 +81,7 @@ function LoginPage() {
               </span>
               <input
                 type="password"
-                className="login-input"
+                className="form-input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Şifreniz"
@@ -94,10 +94,10 @@ function LoginPage() {
             </button>
           </form>
           <p>
-            Henüz bir hesabınız yok mu?{" "}
-            <a href="/register" className="register-link">
+            Henüz bir hesabınız yok mu ?{" "}
+            <Link to="/register" className="register-link">
               Kayıt Olun
-            </a>
+            </Link>
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { isAuthenticated, getUserRole } from "./utils/auth";
 // Import page components
 import LoginPage from "./pages/LoginPage";
 import UserPage from "./components/UserPage"; // Placeholder for user pages
-import AdminPage from "./components/AdminPage"; // Placeholder for admin pages
+import UserManagementPage from "./pages/UserManagementPage/UserManagementPage";
 
 function AppRouter() {
   const isLoggedIn = isAuthenticated();
@@ -39,7 +39,7 @@ function AppRouter() {
 
         {/* Admin and Super Admin Pages */}
         {isLoggedIn && (role === "ADMIN" || role === "SUPER_ADMIN") && (
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/user-management" element={<UserManagementPage />} />
         )}
 
         {/* Redirect if page not found */}

@@ -10,7 +10,7 @@ import FeatureImage3 from "../../assets/images/pazaryeri3.png";
 function Features() {
   return (
     <section className="feature-section">
-      <div className="custom-container">
+      <div className="feature-container">
         <div className="feature">
           <div className="feature-image-container">
             <img

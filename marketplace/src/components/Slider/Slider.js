@@ -1,6 +1,5 @@
 // src/components/Slider/Slider.js
 import React, { useState, useEffect } from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Slider.css";
 
 // Import the images directly from the assets folder
@@ -13,6 +12,14 @@ const images = [Slide1, Slide2, Slide3];
 function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Preload images
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
@@ -23,14 +30,11 @@ function Slider() {
 
   return (
     <div className="slider">
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Slide ${index + 1}`}
-          className={index === currentSlide ? "active" : ""}
-        />
-      ))}
+      <img
+        src={images[currentSlide]}
+        alt={`Slide ${currentSlide + 1}`}
+        className="active"
+      />
     </div>
   );
 }

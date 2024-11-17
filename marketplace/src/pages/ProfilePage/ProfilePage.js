@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import "./ProfilePage.css"
-
+// src/pages/ProfilePage/ProfilePage.js
+import React, { useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import "./ProfilePage.css";
 
 const ProfilePage = () => {
   // State to hold user information
   const [userInfo, setUserInfo] = useState({
-    name: 'Mevcut İsminiz',
-    surname: 'Mevcut Soyisminiz',
-    email: 'mevcut.email@adresiniz.com',
+    firstName: "Mevcut İsminiz",
+    lastName: "Mevcut Soyisminiz",
+    email: "mevcut.email@adresiniz.com",
     // phone: '' // Uncomment if you decide to include phone number
   });
 
   // Handle input change
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     setUserInfo((prevState) => ({
       ...prevState,
-      [id]: value,
+      [name]: value,
     }));
   };
 
@@ -26,85 +26,98 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Logic to update user information (e.g., API call)
-    console.log('Updated User Info:', userInfo);
+    console.log("Updated User Info:", userInfo);
+    // Display a success message or handle errors as needed
   };
 
   // Handle account deletion
   const handleDeleteAccount = () => {
     // Logic to delete the account (e.g., API call)
-    console.log('Account Deleted');
+    console.log("Account Deleted");
+    // Redirect the user or display a confirmation message
   };
 
   return (
-    <>
-        <Navbar /> {/* Navbar'ı burada gösteriyoruz */}
-    <div>
+    <div className="main-container">
+      <Navbar />
       {/* Profile Header */}
-      <div className="profile-header">
-        <h1>Hoşgeldiniz, {userInfo.name} {userInfo.surname}!</h1>
+      <div className="profile-page-header">
+        <h1>
+          Hoşgeldiniz, {userInfo.firstName} {userInfo.lastName}!
+        </h1>
         <p>Burada bilgilerinizi görüntüleyebilir ve güncelleyebilirsiniz.</p>
       </div>
 
       {/* Profile Content */}
-      <div className="container profile-content">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">İsim:</label>
+      <div className="profile-page-content">
+        <form onSubmit={handleSubmit} className="profile-page-form">
+          <div className="profile-page-form-group">
+            <label htmlFor="firstName">İsim:</label>
             <input
               type="text"
-              className="form-control"
-              id="name"
-              value={userInfo.name}
+              id="firstName"
+              name="firstName"
+              value={userInfo.firstName}
               onChange={handleChange}
+              className="profile-page-input"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="surname">Soyisim:</label>
+          <div className="profile-page-form-group">
+            <label htmlFor="lastName">Soyisim:</label>
             <input
               type="text"
-              className="form-control"
-              id="surname"
-              value={userInfo.surname}
+              id="lastName"
+              name="lastName"
+              value={userInfo.lastName}
               onChange={handleChange}
+              className="profile-page-input"
             />
           </div>
-          <div className="form-group">
+          <div className="profile-page-form-group">
             <label htmlFor="email">E-posta Adresiniz:</label>
             <input
               type="email"
-              className="form-control"
               id="email"
+              name="email"
               value={userInfo.email}
               onChange={handleChange}
+              className="profile-page-input"
             />
           </div>
           {/* Uncomment if you want to include phone input
-          <div className="form-group">
+          <div className="profile-page-form-group">
             <label htmlFor="phone">Telefon Numaranız:</label>
             <input
               type="text"
-              className="form-control"
               id="phone"
-              placeholder="Telefon Numaranız"
-              required
-              maxLength="10"
-              pattern="\d*"
-              title="Lütfen sadece rakam giriniz"
+              name="phone"
+              value={userInfo.phone}
               onChange={handleChange}
+              className="profile-page-input"
             />
           </div>
           */}
 
           {/* Button Group */}
-          <div className="button-group">
-            <button type="submit" className="btn btn-update">Bilgileri Güncelle</button>
-            <button type="button" className="btn btn-delete" onClick={handleDeleteAccount}>Hesabı Sil</button>
+          <div className="profile-page-button-group">
+            <button
+              type="submit"
+              className="profile-page-btn profile-page-btn-update"
+            >
+              Bilgileri Güncelle
+            </button>
+            <button
+              type="button"
+              className="profile-page-btn profile-page-btn-delete"
+              onClick={handleDeleteAccount}
+            >
+              Hesabı Sil
+            </button>
           </div>
         </form>
       </div>
+      <Footer />
     </div>
-    <Footer /> {/* Footer'ı burada gösteriyoruz */}
-    </>
   );
 };
 
