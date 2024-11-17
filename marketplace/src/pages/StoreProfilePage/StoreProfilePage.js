@@ -1,128 +1,84 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import "./StoreProfilePage.css"
+import React, { useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import StoreInfo from "../../components/StoreInfo/StoreInfo";
+import StoreForm from "../../components/StoreForm/StoreForm";
+import "./StoreProfilePage.css";
 
 const StoreProfilePage = () => {
-    const [storeInfo, setStoreInfo] = useState({
-        storeName: '',
-        phone: '',
-        taxNumber: '',
-        storeDesc: '',
-        storeAddress: ''
-    });
+  const [storeInfo, setStoreInfo] = useState(null);
+  const [isAddingStore, setIsAddingStore] = useState(false);
 
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setStoreInfo({ ...storeInfo, [id]: value });
-    };
+  // State to hold form input values
+  const [formValues, setFormValues] = useState({
+    storeName: "",
+    phone: "",
+    taxNumber: "",
+    storeDesc: "",
+    storeAddress: "",
+  });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here you would normally handle form submission (e.g., API call)
-        console.log("Store information submitted:", storeInfo);
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
 
-    return (
-        <>
-        <Navbar /> {/* Navbar'ı burada gösteriyoruz */}
-        <div>
-            {/* Profile Header */}
-            <div className="storeprofile-header">
-                <h1>Hoşgeldiniz, Kullanıcı Adı!</h1>
-                <p>Mağaza bilgilerinizi ekleyin veya güncelleyin.</p>
-                <button className="btn-Store btn-Store-primary" id="addStoreBtn">Mağaza Ekle</button>
-            </div>
+  const handleAddStore = () => {
+    setIsAddingStore(true);
+  };
 
-            {/* Profile Content */}
-            <div className="store-container" id="storeFormContainer">
-                <h2>Mağaza Bilgileri</h2>
-                <form id="storeForm" onSubmit={handleSubmit}>
-                    <div className="store-form-group">
-                        <label htmlFor="storeName">Mağaza Adı:</label>
-                        <input
-                            type="text"
-                            className="store-form-control"
-                            id="storeName"
-                            placeholder="Mağaza Adı"
-                            required
-                            value={storeInfo.storeName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="store-form-group">
-                        <label htmlFor="phone">Telefon Numarası:</label>
-                        <input
-                            type="text"
-                            className="store-form-control"
-                            id="phone"
-                            placeholder="Telefon Numarası"
-                            required
-                            maxLength="10"
-                            pattern="\d*"
-                            title="Lütfen sadece rakam giriniz."
-                            value={storeInfo.phone}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="store-form-group">
-                        <label htmlFor="taxNumber">Vergi Numarası:</label>
-                        <input
-                            type="text"
-                            className="store-form-control"
-                            id="taxNumber"
-                            placeholder="Vergi Numarası"
-                            required
-                            maxLength="10"
-                            pattern="\d*"
-                            title="Lütfen sadece rakam giriniz."
-                            value={storeInfo.taxNumber}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="store-form-group">
-                        <label htmlFor="storeDesc">Mağaza Açıklaması:</label>
-                        <textarea
-                            className="store-form-control"
-                            id="storeDesc"
-                            rows="3"
-                            placeholder="Mağaza Açıklaması"
-                            required
-                            value={storeInfo.storeDesc}
-                            onChange={handleChange}
-                        ></textarea>
-                    </div>
-                    <div className="store-form-group">
-                        <label htmlFor="storeAddress">Mağaza Adresi:</label>
-                        <input
-                            type="text"
-                            className="store-form-control"
-                            id="storeAddress"
-                            placeholder="Mağaza Adresi"
-                            required
-                            value={storeInfo.storeAddress}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <button type="submit" className="btn-Store btn-Store-primary">Kaydet</button>
-                </form>
-            </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Store information submitted:", formValues);
+    setStoreInfo(formValues); // Update storeInfo with the form data
+    setIsAddingStore(false); // Hide the form after submission
+  };
 
-            {/* Store Info Display */}
-            <div className="store-container store-info" id="storeInfo">
-                <h3>Mağaza Bilgileri:</h3>
-                <p><strong>Mağaza Adı:</strong> <span id="displayStoreName">{storeInfo.storeName}</span></p>
-                <p><strong>Telefon Numarası:</strong> <span id="displayPhone">{storeInfo.phone}</span></p>
-                <p><strong>Vergi Numarası:</strong> <span id="displayTaxNumber">{storeInfo.taxNumber}</span></p>
-                <p><strong>Mağaza Açıklaması:</strong> <span id="displayStoreDesc">{storeInfo.storeDesc}</span></p>
-                <p><strong>Mağaza Adresi:</strong> <span id="displayStoreAddress">{storeInfo.storeAddress}</span></p>
-                <button className="btn-Store btn-Store-update" id="updateStoreBtn">Güncelle</button>
-            </div>
+  const handleUpdateStore = () => {
+    // When updating, preload formValues with existing storeInfo
+    setFormValues(storeInfo);
+    setIsAddingStore(true);
+  };
+
+  const handleCancel = () => {
+    setIsAddingStore(false);
+  };
+
+  return (
+    <div className="main-container">
+      <Navbar />
+      <div className="main-content">
+        <div className="storeprofile-header">
+          <h1>Hoşgeldiniz, Kullanıcı Adı!</h1>
+          <p>Mağaza bilgilerinizi ekleyin veya güncelleyin.</p>
+          {!storeInfo && !isAddingStore && (
+            <button
+              className="btn-store btn-store-primary"
+              onClick={handleAddStore}
+            >
+              Mağaza Ekle
+            </button>
+          )}
         </div>
-        <Footer /> {/* Footer'ı burada gösteriyoruz */}
-        </>
-    );
-};
+        {/* Store Information Display */}
+        {storeInfo && !isAddingStore && (
+          <StoreInfo storeInfo={storeInfo} onUpdate={handleUpdateStore} />
+        )}
 
+        {/* Add or Update Store Form */}
+        {isAddingStore && (
+          <StoreForm
+            formValues={formValues}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            handleCancel={handleCancel}
+            isUpdating={!!storeInfo}
+          />
+        )}
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
 export default StoreProfilePage;

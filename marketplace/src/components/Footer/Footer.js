@@ -1,6 +1,6 @@
 // src/components/Footer/Footer.js
 import React from "react";
-import "./Footer.css"; // Import custom CSS
+import "./Footer.css";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,12 +11,13 @@ import {
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-container">
         <div className="social-icons">
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Facebook"
           >
             <FaFacebookF className="social-icon" />
           </a>
@@ -24,6 +25,7 @@ function Footer() {
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Twitter"
           >
             <FaTwitter className="social-icon" />
           </a>
@@ -31,6 +33,7 @@ function Footer() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram"
           >
             <FaInstagram className="social-icon" />
           </a>
@@ -38,6 +41,7 @@ function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <FaLinkedinIn className="social-icon" />
           </a>

@@ -1,82 +1,109 @@
+/* src/pages/ProfilePage/ProfilePage.css */
+
 /* Profile Header */
-.profile-header {
-    text-align: center;
-    padding: 80px;
-    background-color: #000000; /* Light background for header */
-    color: #fff;
-    margin-bottom: 15px;
-    margin: auto;
-    
+.profile-page-header {
+  text-align: center;
+  padding: 60px 20px 20px; /* Adjusted padding */
+  background-color: #333;
+  color: #fff;
 }
 
-.profile-header h1 {
-    color: #fefeff; /* Dark text for better readability */
-    font-size: 24px;
-    margin: 0;
+.profile-page-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-.profile-header p {
-    color: #6c757d; /* Muted text color */
-    font-size: 16px;
+.profile-page-header p {
+  font-size: 18px;
+  color: #ccc;
 }
 
-/* Profile Content */
-.container.profile-content {
-    max-width: 600px; /* Limit the width of the form */
-    margin: 20px auto; /* Center align */
-    padding: 20px;
-    background-color: #212222; 
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.profile-page-content {
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  align-items: center; /* Center children horizontally */
+  flex-grow: 1; /* Allow it to grow and fill available space */
+  padding: 40px 20px;
+  background-color: #1a1a1a;
+}
+.profile-page-form {
+  max-width: 600px;
+  width: 100%;
+  background-color: #212121;
+  padding: 30px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  flex: 0; /* Do not grow or shrink */
+  align-self: center; /* Center horizontally */
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 15px; /* Space between form elements */
+.profile-page-form-group {
+  margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block; /* Block-level label */
-    margin-bottom: 5px; /* Space between label and input */
-    color: #efefef; /* Darker text color */
+.profile-page-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #f1c40f;
+  font-weight: bold;
 }
 
-.form-control {
-    width: 100%; /* Full width for inputs */
-    padding: 10px; /* Padding inside input */
-    border: 1px solid #f2ff00; /* Light border */
-    border-radius: 4px; /* Rounded input edges */
-    font-size: 16px; /* Font size for inputs */
+.profile-page-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 16px;
+  box-sizing: border-box; /* Added box-sizing */
+}
+
+.profile-page-input:focus {
+  outline: none;
+  border-color: #f1c40f;
 }
 
 /* Button Group */
-.button-group {
-    display: flex;
-    justify-content: space-between; /* Space between buttons */
+.profile-page-button-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0; /* Remove any extra margin */
 }
 
-.btn {
-    padding: 10px 20px; /* Padding for buttons */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded edges */
-    font-size: 16px; /* Font size for buttons */
-    cursor: pointer; /* Pointer cursor on hover */
+.profile-page-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.btn-update {
-    background-color: #ffde04; /* Bootstrap primary color */
-    color: #000000; /* White text */
+.profile-page-btn-update {
+  background-color: #f1c40f;
+  color: #333;
 }
 
-.btn-update:hover {
-    background-color: #ffde04; /* Darker shade on hover */
+.profile-page-btn-update:hover {
+  background-color: #d4ac0d;
+  color: #fff;
 }
 
-.btn-delete {
-    background-color: #dc3545; /* Bootstrap danger color */
-    color: #fff; /* White text */
+.profile-page-btn-delete {
+  background-color: #dc3545;
+  color: #fff;
 }
 
-.btn-delete:hover {
-    background-color: #c82333; /* Darker shade on hover */
+.profile-page-btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-page-button-group {
+    flex-direction: column;
+  }
 }

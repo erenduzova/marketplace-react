@@ -7,8 +7,6 @@
   z-index: 1000;
   top: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 2px solid #f1c40f;
 }
 
@@ -33,10 +31,6 @@
   list-style: none;
   display: flex;
   gap: 30px;
-  margin: 0;
-}
-
-.navbar-links li {
   margin: 0;
 }
 
@@ -65,11 +59,21 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .navbar-container {
-    justify-content: space-between;
-  }
+.logout-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
 
+.logout-btn:hover {
+  color: #f1c40f;
+}
+
+@media (max-width: 768px) {
   .navbar-links {
     display: none;
     flex-direction: column;
@@ -89,7 +93,6 @@
 
   .navbar-toggler {
     display: block;
-    font-size: 28px;
     margin-left: auto;
     padding-right: 20px;
     z-index: 101;
@@ -97,6 +100,5 @@
 
   .navbar-brand img {
     max-width: 150px;
-    padding-left: 0;
   }
 }

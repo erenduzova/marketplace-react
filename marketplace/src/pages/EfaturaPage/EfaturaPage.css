@@ -1,132 +1,17 @@
-/* Ana içerik konteyneri */
-.fatura-content-container {
-  max-width: 1500px;
-  margin: 0 auto;
+/* EfaturaPage Styles */
+
+.efatura-content-container {
   background-color: #333;
-  padding-top: 70px; 
   color: #fff;
-  border-radius: 8px;
-  min-height: calc(90vh - 80px);
-  position: relative;
-  z-index: 1; /* Ensures content is above other elements */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px;
 }
 
-
-
-/* Başlık stili */
-.fatura-text-center {
+.efatura-title {
   text-align: center;
   font-size: 32px;
   font-weight: bold;
-  color: #ffffff !important;
-  margin-top: 20px;
-}
-
-/* Form alanı düzeni */
-.fatura-search-section {
-  padding: 20px;
-  background-color: #444;
-  border-radius: 8px;
-}
-
-/* Form satırı düzeni */
-.form-row {
-  display: flex;
-  gap: 10px; /* Kutular arasındaki boşluk */
-  flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş için */
   margin-bottom: 20px;
-  justify-content: space-between;
 }
-
-/* Form grubu düzeni */
-.col-md-4, .col-md-2 {
-  flex: 0.8; /* Tüm kutuların eşit genişlikte olması için */
-  min-width: 100px;
-}
-
-/* Etiket ve input düzeni */
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #ccc;
-}
-
-.form-control {
-  width: 100%;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background-color: #444;
-  color: #fff;
-}
-
-/* Buton stili */
-.fatura-btn-primary {
-  background-color: #FFC107;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  margin-top: 27px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  min-width: 80px; /* Butonun daha geniş görünmesi için */
-}
-
-.fatura-btn-primary:hover {
-  background-color: #e0a800;
-}
-
-/* Tablo düzeni */
-.fatura-table-responsive {
-  overflow-x: auto;
-  margin-top: 20px;
-}
-
-.fatura-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: #fff;
-}
-
-.fatura-table th, .fatura-table td {
-  padding: 10px;
-  border: 1px solid #555;
-  text-align: left;
-}
-
-.fatura-table thead {
-  background-color: #555;
-}
-
-.fatura-table tbody tr:nth-child(even) {
-  background-color: #444;
-}
-
-/* İşlem butonları */
-.fatura-action-buttons button {
-  margin-right: 5px;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  cursor: pointer;
- 
-}
-
-/* İşlem butonları renkleri */
-.fatura-btn-success { background-color: #28a745; color: #fff; }
-.fatura-btn-danger { background-color: #dc3545; color: #fff; }
-.fatura-btn-secondary { background-color: #6c757d; color: #fff; }
-.fatura-btn-info { background-color: #17a2b8; color: #fff; }
-.fatura-btn-warning { background-color: #ffc107; color: #000; }
-.fatura-btn-dark { background-color: #343a40; color: #fff; }
-
-/* Hover efektleri */
-.fatura-btn-success:hover { background-color: #218838; }
-.fatura-btn-danger:hover { background-color: #c82333; }
-.fatura-btn-secondary:hover { background-color: #5a6268; }
-.fatura-btn-info:hover { background-color: #138496; }
-.fatura-btn-warning:hover { background-color: #e0a800; }
-.fatura-btn-dark:hover { background-color: #23272b; }
